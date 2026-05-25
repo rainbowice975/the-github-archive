@@ -6,13 +6,6 @@
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
   </head>
   <body>
-
-
-    <div id="ruffle-container" style="width: 800px; height: 600px; margin-bottom: 10px;"></div>
-    <input type="file" id="swf-input" accept=".swf">
-    <button onclick="loadUserSWF()">Play File</button>
-
-
     <h1>Flash Games</h1>
     <h2>Papa's Games</h2>
     <a href="InternetArchive/Flash/papaspizzeria_v2 (1).swf" download>
@@ -44,5 +37,28 @@
     <a href="InternetArchive/Flash/Movies/clippy_episode3.swf" download>
       <button type="button">Microsoft Office XP Clippy Episode 3</button>
     </a>
+
+    <h1>Try it now!</h1>
+    <h2>Time Fcuk</h2>
+    <div id="flash-container" style="width: 800px; height: 600px;"></div>
+
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        
+        window.RufflePlayer.config = {
+            "autoplay": "on",
+            "splashScreen": false,
+            "unmuteOverlay": "hidden"
+        };
+
+        window.addEventListener("load", (event) => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            const container = document.getElementById("flash-container");
+            
+            container.appendChild(player);
+            player.load("testload1.swf");
+        });
+    </script>
   </body>
 </html>
